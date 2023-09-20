@@ -9,6 +9,8 @@ navigation:
         path: ./docs/pages/getting-started.mdx
       - page: Authentication
         path: ./docs/pages/authentication.mdx
+      - page: SDKs
+        path: ./docs/pages/sdks.mdx        
   - api: API Reference
 colors:
   accentPrimary: 
