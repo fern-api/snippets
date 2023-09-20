@@ -3,10 +3,10 @@ instances:
 
 title: Snippets API
 navigation:
-  - section: Getting Started
+  - section: Introduction
     contents:
-      - page: Introduction
-        path: ./docs/pages/introduction.mdx
+      - page: Getting Started
+        path: ./docs/pages/getting-started.mdx
       - page: Authentication
         path: ./docs/pages/authentication.mdx
   - api: API Reference
@@ -22,3 +22,10 @@ logo:
   dark: ./docs/assets/logo.png
   light: ./docs/assets/logo.png
 favicon: ./docs/assets/favicon.ico
+navbar-links:
+  - type: secondary
+    text: Go to buildwithfern.com
+    url: https://buildwithfern.com
+  - type: primary
+    text: Request an API Key
+    url: mailto:support@buildwithfern.com
