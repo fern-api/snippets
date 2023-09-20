@@ -1,0 +1,189 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: true
+  base-path: /snippets
+  endpoints:
+    get:
+      path: ""
+      docs: Get snippet by endpoint method and path
+      display-name: Get snippet for endpoint
+      method: POST
+      request: EndpointIdentifier
+      response: Snippet
+      errors: 
+        - EndpointNotFound
+      examples: 
+        - request: 
+            method: GET
+            path: /v1/search
+          response: 
+            body: 
+              id: snippet_123012
+              endpoint: 
+                method: GET
+                path: /v1/serach
+              codeBlocks: 
+                - sdk: 
+                    type: python
+                    package: vellum-ai
+                    version: 1.2.1
+                  code: | 
+                    import Vellum from vellum.client
+
+                    vellum.search(query="Find documents written in the last 5 days")
+    
+    filter: 
+      path: /filter
+      display-name: Filter snippets
+      method: POST
+      request: 
+        name: FilterSnippetsRequest
+        query-parameters:
+          filterId: 
+            type: optional<string>
+            docs: | 
+              If loading the next page, get the value for filterId in the response.
+          page:
+            type: optional<string>
+            docs: | 
+             Pass in the id for the next page. You can get the value from the `next`
+             field in the response.
+        body: 
+          properties: 
+            basePathRegex: 
+              type: string
+              docs: | 
+                This field is a regex. Filters to any endpoint that matches the regex. 
+      response: FilteredSnippetsPage
+      examples: 
+        - request: 
+            basePathRegex: /v1/*
+          response: 
+            body: 
+              filterId: filter_1u92048-12302
+              snippets:
+                - id: snippet_123012
+                  endpoint: 
+                    method: GET
+                    path: /v1/serach
+                  codeBlocks: 
+                    - sdk: 
+                        type: python
+                        package: vellum-ai
+                        version: 1.2.1
+                      code: | 
+                        import Vellum from vellum.client
+
+                        vellum.search(query="Find documents written in the last 5 days")
+                    - sdk: 
+                        type: typescript
+                        package: vellum-ai
+                        version: 1.0.3
+                      code: | 
+                        import VellumClient from "vellum-ai"
+
+                        vellum.search({
+                          query: "Find documents written in the last 5 days"
+                        })
+
+    list: 
+      path: /list
+      display-name: List all snippets
+      method: GET
+      request: 
+        name: ListSnippetsRequest
+        query-parameters: 
+          page: optional<string>
+      response: SnippetsPage
+
+types:
+  FilteredSnippetsPage: 
+    properties: 
+      next: 
+        type: optional<string>
+        docs: If present, pass this into the `page` query parameter to load the next page.
+      filterId: 
+        type: string
+        docs: Pass this into the `filterId` query parameter to load the next page.
+      snippets: list<Snippet>
+  
+  SnippetsPage: 
+    properties: 
+      next: 
+        type: optional<string>
+        docs: If present, pass this into the `page` query parameter to load the next page.
+      snippets: list<Snippet>
+
+  EndpointIdentifier: 
+    properties: 
+      path:
+        type: string
+        docs: The relative path of the endpoint (e.g. /snippets/get). 
+      method: 
+        type: EndpointMethod 
+
+  SnippetId: string
+
+  EndpointMethod: 
+    enum: 
+      - PUT
+      - POST
+      - GET
+      - PATCH
+      - DELETE
+
+  Language: 
+    enum:
+      - python
+      - typescript
+      - go
+      - java
+  
+  Snippet: 
+    properties:
+      id: SnippetId
+      endpoint: EndpointIdentifier  
+      codeBlocks: 
+        type: list<CodeBlock>
+        docs: The codeblocks for each language.
+
+  CodeBlock: 
+    properties:     
+      sdk: 
+        type: SDK
+        docs: The SDK the snippet is from.
+      code: string
+  
+  SDK: 
+    union: 
+      typescript: TypeScriptSDK
+      python: PythonSDK
+      go: GoSDK
+      java: JavaSDK
+
+  TypeScriptSDK: 
+    properties: 
+      package: string
+      version: string
+  
+  PythonSDK: 
+    properties: 
+      package: string
+      version: string
+  
+  GoSDK: 
+    properties: 
+      githubRepo: string
+      version: string
+  
+  JavaSDK:
+    properties: 
+      repository: string
+      group: string
+      version: string
+
+errors:
+  EndpointNotFound: 
+    status-code: 404
+    docs: The requested endpoint was not found

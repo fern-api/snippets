@@ -1,0 +1,43 @@
+The Snippets API uses API keys to authenticate requests. Your API key will have the prefix `fern_`. Your API keys are private, so be sure to keep them secure. Don't share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
+
+<CodeBlocks>
+    <CodeBlock title="cURL">
+    ```bash
+    curl https://api.buildwithfern.com/snippets \
+    -u fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il
+    ```
+    </CodeBlock>
+
+    <CodeBlock title="Python">
+    ```python
+    import fern-snippets
+    fern-snippets.api_key = "fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il"
+    ```
+    </CodeBlock>    
+
+    <CodeBlock title="Node.js">
+    ```typescript
+    const Fern = require('fern');
+    const fern = Fern('fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il');
+    ```
+    </CodeBlock>    
+
+    <CodeBlock title="Java">
+    ```java
+    Fern-Snippets.apiKey = "fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il";
+    ```
+    </CodeBlock>  
+         
+    <CodeBlock title="Java">
+    ```go
+    fern-snippets.Key = "fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il"
+    ```
+    </CodeBlock>
+
+</CodeBlocks>
+    
+The `Snippets API` is in private beta. To get an API Key, please [contact us](mailto:support@buildwithfern.com).
+
+<Callout intent="info">
+The `Snippets API` is currently a beta version and subject to breaking changes. We  use semantic versioning and will do our best to communicate any changes to the API.
+</Callout>

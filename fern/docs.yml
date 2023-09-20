@@ -1,6 +1,24 @@
-title: dannysheridan
+instances: 
+  - url: snippets.docs.buildwithfern.com
+
+title: Snippets API
 navigation:
+  - section: Getting Started
+    contents:
+      - page: Introduction
+        path: ./docs/pages/introduction.mdx
+      - page: Authentication
+        path: ./docs/pages/authentication.mdx
   - api: API Reference
 colors:
-  accentPrimary: '#ffffff'
-logo: ./logo.png
+  accentPrimary: 
+    dark: "#65b145"
+    light: "#3c831e"
+  background: 
+    dark: "#000000"
+    light: "#FFFFFF"    
+logo: 
+  height: 50
+  dark: ./docs/assets/logo.png
+  light: ./docs/assets/logo.png
+favicon: ./docs/assets/favicon.ico
