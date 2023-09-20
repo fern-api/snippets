@@ -3,38 +3,11 @@ The Snippets API uses API keys to authenticate requests. Your API key will have 
 <CodeBlocks>
     <CodeBlock title="cURL">
     ```bash
-    curl https://api.buildwithfern.com/snippets \
-    -u fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il
+    curl -X POST \
+        --url "https://api.buildwithfern.com/snippets" \
+        --header "X-Fern-API-Key: fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il" \
     ```
     </CodeBlock>
-
-    <CodeBlock title="Python">
-    ```python
-    import fern-snippets
-    fern-snippets.api_key = "fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il"
-    ```
-    </CodeBlock>    
-
-    <CodeBlock title="Node.js">
-    ```typescript
-    const Fern = require('fern');
-    const fern = Fern('fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il');
-    ```
-    </CodeBlock>    
-
-    <CodeBlock title="Java">
-    ```java
-    Fern-Snippets.apiKey = "fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il";
-    ```
-    </CodeBlock>  
-         
-    <CodeBlock title="Go">
-    ```go
-    fern-snippets.Key = "fern_moN3KI_1AseQp1UI5U9ysYFsuNo4P3Il"
-    ```
-    </CodeBlock>
-
-</CodeBlocks>
     
 To get an API Key, please [contact us](mailto:support@buildwithfern.com).
 
