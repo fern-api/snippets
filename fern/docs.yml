@@ -12,8 +12,8 @@ navigation:
   - api: API Reference
 colors:
   accentPrimary: 
-    dark: "#65b145"
-    light: "#3c831e"
+    dark: "#16EE9D"
+    light: "#16EE9D"
   background: 
     dark: "#000000"
     light: "#FFFFFF"    
