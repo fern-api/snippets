@@ -29,9 +29,9 @@ service:
                     package: vellum-ai
                     version: 1.2.1
                   code: | 
-                    import Vellum from vellum.client
-
-                    vellum.search(query="Find documents written in the last 5 days")
+                    import Vellum from vellum.client  
+                      
+                    vellum.search(query="Find documents written in the last 5 days")  
     
     filter: 
       path: /filter
@@ -73,9 +73,9 @@ service:
                         package: vellum-ai
                         version: 1.2.1
                       code: | 
-                        import Vellum from vellum.client
-
-                        vellum.search(query="Find documents written in the last 5 days")
+                        import Vellum from vellum.client  
+                          
+                        vellum.search(query="Find documents written in the last 5 days")  
                     - sdk: 
                         type: typescript
                         package: vellum-ai
@@ -83,10 +83,10 @@ service:
                       code: | 
                         import VellumClient from "vellum-ai"
 
-                        vellum.search({
-                          query: "Find documents written in the last 5 days"
-                        })
-
+                        vellum.search({  
+                          query: "Find documents written in the last 5 days"  
+                        })  
+                          
     list: 
       path: /list
       display-name: List all snippets

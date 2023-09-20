@@ -15,19 +15,14 @@ navigation:
 colors:
   accentPrimary: 
     dark: "#16EE9D"
-    light: "#16EE9D"
   background: 
-    dark: "#000000"
-    light: "#FFFFFF"    
+    dark: "#000000"  
 logo: 
   height: 50
   dark: ./docs/assets/logo.png
   light: ./docs/assets/logo.png
 favicon: ./docs/assets/favicon.ico
 navbar-links:
-  - type: secondary
-    text: Go to buildwithfern.com
-    url: https://buildwithfern.com
   - type: primary
     text: Request an API Key
     url: mailto:support@buildwithfern.com
