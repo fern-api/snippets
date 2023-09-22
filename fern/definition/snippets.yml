@@ -71,11 +71,12 @@ service:
 types:
   EndpointIdentifier: 
     properties: 
-      path:
-        type: string
-        docs: The relative path of the endpoint (e.g. /snippets/get). 
-      method: 
-        type: EndpointMethod 
+      path: EndpointPath
+      method: EndpointMethod
+
+  EndpointPath: 
+    type: string
+    docs: The relative path for an endpont (e.g. `/users/{userId}`)
 
   EndpointMethod: 
     enum: 
@@ -97,14 +98,10 @@ types:
       next: 
         type: optional<string>
         docs: If present, pass this into the `page` query parameter to load the next page.
-      endpoints: list<SnippetsForEndpoint>
+      endpoints: map<EndpointPath, SnippetsForPath>
   
-  SnippetsForEndpoint: 
-    properties:
-      endpoint: EndpointIdentifier  
-      snippets: 
-        type: list<Snippet>
-        docs: The codeblocks for each language.
+  SnippetsForPath: 
+    type: map<EndpointMethod, list<Snippet>>
 
   Snippet: 
     properties:     

@@ -12,11 +12,10 @@ navigation:
       - page: SDKs
         path: ./docs/pages/sdks.mdx        
   - api: API Reference
+background-image: ./docs/assets/background.svg
 colors:
   accentPrimary: 
     dark: "#16EE9D"
-  background: 
-    dark: "#000000"  
 logo: 
   height: 50
   dark: ./docs/assets/logo.png
