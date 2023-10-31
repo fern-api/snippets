@@ -1,4 +1,4 @@
-name: api
+name: snippets-api
 error-discrimination:
   strategy: property
   property-name: errorName

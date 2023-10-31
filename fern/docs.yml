@@ -11,8 +11,8 @@ navigation:
         path: ./docs/pages/authentication.mdx
       - page: SDKs
         path: ./docs/pages/sdks.mdx   
-  - api: Reference
-    api-name: api
+  - api: API Reference
+    api-name: snippets-api
     snippets:
       python: fern-api     
 
