@@ -1,0 +1,48 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  validate-fern-api:
+    name: Validate API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Fern
+        run: npm install -g fern-api
+
+      - name: Validate API with Fern
+        run: fern check
+      
+  publish-docs:
+    name: Publish Documentation
+    needs: validate-fern-api
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Fern
+        run: npm install -g fern-api
+
+      - name: Generate and Publish Documentation with Fern
+        env:
+          FERN_TOKEN: ${{ secrets.FERN_TOKEN }}
+        run: fern generate --docs 
