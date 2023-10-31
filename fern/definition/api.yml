@@ -1,6 +1,7 @@
 name: api
 error-discrimination:
-  strategy: status-code
+  strategy: property
+  property-name: errorName
 auth: ApiKey
 auth-schemes: 
   ApiKey: 

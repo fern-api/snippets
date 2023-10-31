@@ -15,18 +15,12 @@ navigation:
     api-name: api
     snippets:
       python: fern-api     
-  # - section: API Reference
-  #   contents: 
-  #     - api: Reference
-  #       api-name: api
-  #       snippets:
-  #         python: fern-api
+
+background-image: ./docs/assets/background.svg
 
 colors:
   accentPrimary: 
     dark: "#16EE9D"
-  background: 
-    dark: "#000000"  
 logo: 
   height: 50
   dark: ./docs/assets/logo.png
