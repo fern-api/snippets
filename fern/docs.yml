@@ -10,8 +10,18 @@ navigation:
       - page: Authentication
         path: ./docs/pages/authentication.mdx
       - page: SDKs
-        path: ./docs/pages/sdks.mdx        
-  - api: API Reference
+        path: ./docs/pages/sdks.mdx   
+  - api: Reference
+    api-name: api
+    snippets:
+      python: fern-api     
+  # - section: API Reference
+  #   contents: 
+  #     - api: Reference
+  #       api-name: api
+  #       snippets:
+  #         python: fern-api
+
 colors:
   accentPrimary: 
     dark: "#16EE9D"
